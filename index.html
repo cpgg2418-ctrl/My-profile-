@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"><title>SOCIAL MEDIA ACCOUNT</title><style id="css">
+:root{--a:#e11d2e;--ar:225,29,46;--t:#f3f4f6;--s:#9aa0a8;--e:rgba(255,255,255,.2);--g:rgba(255,255,255,.07);padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;min-height:100svh;color:var(--t);font:15px system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:radial-gradient(ellipse at 50% -10%,rgba(var(--ar),.28),transparent 55%),radial-gradient(circle at 100% 90%,rgba(var(--ar),.14),transparent 40%),#07080b;background-attachment:fixed;overflow-x:hidden}
+button,a,.disc{font:inherit;outline:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+button:focus-visible,a:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+canvas{pointer-events:none}
+#rain{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.glass{background:var(--g);border:1px solid var(--e);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.wrap{position:relative;z-index:1;max-width:460px;width:calc(100% - 24px);margin:24px auto;padding:20px 16px 26px;border-radius:28px;background:linear-gradient(155deg,rgba(24,25,31,.82),rgba(8,9,13,.88));border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 28px 80px rgba(0,0,0,.58),inset 0 1px 0 rgba(255,255,255,.16)}
+.wrap::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:-1;box-shadow:0 0 250px 10px rgba(var(--ar),.4)}
+.top{position:relative;display:flex;align-items:center;justify-content:center;min-height:72px;border-radius:19px;font-size:19px;font-weight:700;letter-spacing:.8px;color:#fff;cursor:pointer;background:linear-gradient(120deg,rgba(var(--ar),.32),rgba(255,255,255,.05));border-color:rgba(var(--ar),.55)}
+.toppic{width:42px;height:42px;margin-right:12px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:rgba(255,255,255,.14);border:1px solid var(--e);overflow:hidden;flex:none}
+.toppic img{width:100%;height:100%;object-fit:cover}
+h2{font:400 clamp(31px,8vw,38px) "Bebas Neue",Impact,sans-serif;letter-spacing:1.9px;text-align:center;margin:22px 0 0;color:#d6d9de;text-shadow:0 4px 24px rgba(var(--ar),.35)}
+.arrows{display:flex;justify-content:center;gap:76px;color:var(--a);font-size:21px;margin:7px 0 12px;animation:bob 1.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+.win{position:relative;border-radius:21px;overflow:hidden;background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.17);box-shadow:inset 0 0 30px rgba(0,0,0,.6)}
+#fx2{position:absolute;inset:0;width:100%;height:100%}
+#rows{position:relative;z-index:1;height:186px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:contain;padding:58px 10px;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
+#rows::-webkit-scrollbar{display:none}
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+@keyframes sweep{to{--ang:360deg}}
+.row{position:relative;display:flex;align-items:center;min-height:62px;border-radius:999px;padding:4px 14px 4px 10px;margin-bottom:16px;color:var(--t);text-decoration:none;scroll-snap-align:center;transition:filter .3s,opacity .3s,transform .3s,padding .35s,background .35s}
+.row:last-child{margin:0}
+.row::before,.row::after{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;padding:1px;background:conic-gradient(from var(--ang),transparent,var(--a) 50deg,#fff 85deg,var(--a) 120deg,transparent 170deg,transparent);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:sweep 3.2s linear infinite}
+.row::after{padding:2px;filter:blur(4px);opacity:.8}
+.row.alert{padding:16px 18px;background:color-mix(in srgb,var(--a) 24%,transparent)}
+.ic{width:58px;height:56px;display:grid;place-items:center;flex:none}
+.bar{flex:1;min-height:54px;display:flex;align-items:center;justify-content:space-between;padding-left:10px;font-weight:600}
+.row.alert .bar{font-size:15px;text-align:center}
+.bar i{color:var(--a);font-style:normal;font-size:24px}
+.rip{position:absolute;inset:0;border-radius:inherit;overflow:hidden;pointer-events:none;z-index:3}
+.rip b{position:absolute;border-radius:50%;transform:scale(0);animation:rp .75s ease-out forwards;background:radial-gradient(circle,rgba(255,255,255,.22) 0 52%,rgba(255,255,255,.65) 58%,transparent 66%)}
+@keyframes rp{to{transform:scale(1);opacity:0}}
+.music{display:flex;align-items:center;gap:14px;margin-top:23px;padding:14px;border-radius:21px}
+.disc{width:76px;height:76px;border-radius:50%;flex:none;cursor:pointer;position:relative;animation:spin 4s linear infinite paused;background:radial-gradient(circle,#fff 0 7%,rgba(0,0,0,.55) 8% 14%,transparent 15%),conic-gradient(var(--a),#222,#e8e8e8,#222,var(--a));box-shadow:0 0 25px rgba(var(--ar),.4),inset 0 0 0 3px rgba(255,255,255,.32)}
+.playing .disc{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pr{flex:1}.time{text-align:right;font-size:12px;font-weight:700;letter-spacing:.7px;color:#d6d9de;margin-bottom:8px}
+.track{height:7px;border-radius:7px;background:rgba(255,255,255,.14);cursor:pointer;overflow:hidden}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--a),#d6d9de)}
+.servers{display:flex;gap:8px;margin-top:14px}
+.srv{position:relative;flex:1;min-height:43px;border-radius:13px;color:var(--t);font-size:12px;font-weight:700;cursor:pointer;transition:box-shadow .3s}
+.srv.act{background:rgba(var(--ar),.14);border-color:rgba(var(--ar),.65);box-shadow:0 0 20px rgba(var(--ar),.2)}
+.hint{text-align:center;font-size:11px;color:var(--s);margin-top:12px}
+.toast{position:fixed;z-index:95;left:50%;transform:translateX(-50%);bottom:calc(30px + env(safe-area-inset-bottom,0px));padding:12px 22px;border-radius:999px;font-weight:600;border-color:var(--a)}
+#gear{position:fixed;z-index:70;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));width:42px;height:42px;border-radius:50%;color:var(--t);font-size:20px;cursor:pointer}
+#adm{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.82);overflow-y:auto;padding:16px}
+#adm .box{max-width:460px;margin:auto;padding:18px;border-radius:22px;background:#0d0e13;border:1px solid var(--e)}
+#adm h3{margin:18px 0 6px;font-size:14px;color:var(--a)}
+#adm label{display:block;font-size:12px;color:var(--s);margin:9px 0 3px}
+#adm input:not([type=file]),#adm select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--e);background:#16171d;color:var(--t);font:inherit}
+#adm input[type=color]{height:42px;padding:2px}
+#adm .acc{padding:10px;margin-bottom:10px;border:1px solid var(--e);border-radius:14px}
+#adm .btn{padding:10px 16px;margin:8px 8px 0 0;border-radius:12px;border:1px solid var(--e);background:#1d1f27;color:var(--t);cursor:pointer}
+#adm .btn.p{background:var(--a);border-color:var(--a);color:#fff}
+#adm small{color:var(--s)}
+</style></head><body><div id="app"></div><script id="cfg" type="application/json">{"top":"Cheeky boy","topImgId":"741fdbd634af2bcdfd72ed977ac337c3","clickSndId":"eec54d1086a64d763a95a39e8e595dd0","heading":"SOCIAL MEDIA ACCOUNT","hint":"Tap the disc to play music","accent":"#e11d2e","accounts":[{"t":"discord","n":"Discord","u":"","note":""},{"t":"youtube","n":"YouTube","u":"","note":""},{"t":"facebook","n":"Facebook","u":"https://www.facebook.com/share/1CZq8bkDn5/","note":""},{"t":"instagram","n":"Instagram","u":"https://www.instagram.com/the_zuim?srtk=MXdianVqZzRrMGFidQ==","note":""},{"t":"tiktok","n":"TikTok","u":"","note":"TikTok is banned in India"},{"t":"telegram","n":"Telegram","u":"","note":""}],"servers":[{"label":"Server 1","id":"e1e8bfdbf65ebc52a67458866bf8f15f","name":"song1.mp4"},{"label":"Server 2","id":"aaf2ea3c0df84bc81973c96ae1e063b7","name":"song2.mp4"},{"label":"Server 3","id":"f683af54df3e355a61585c88ab7c6638","name":"song3.mp4"}]}</script><script id="main">
+const HEAD='<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const CFG=JSON.parse($('#cfg').textContent);
+const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const blob=id=>id?'/_blob/'+id:'';
+const safe=u=>{u=(u||'').trim();if(!u)return'';if(!/^[a-z][a-z0-9+.-]*:/i.test(u))u='https://'+u;return/^(https?:|tg:|mailto:)/i.test(u)?u:''};
+const IC={
+discord:['#7289da','<path d="M20.317 4.37a19.79 19.79 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.74 19.74 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.1 13.1 0 01-1.872-.892.077.077 0 01-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 01.078-.01c3.928 1.793 8.18 1.793 12.061 0a.074.074 0 01.079.009c.12.099.246.198.373.292a.077.077 0 01-.006.127 12.3 12.3 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.84 19.84 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.06.06 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>'],
+youtube:['#ff3b3b','<path d="M3 8a3 3 0 013-3h12a3 3 0 013 3v8a3 3 0 01-3 3H6a3 3 0 01-3-3z"/><path d="M10 9l5 3-5 3z" fill="#000"/>'],
+facebook:['#4c8bf5','<circle cx="12" cy="12" r="10"/><path d="M13.5 21v-7h2.3l.4-3h-2.7V9.3c0-.9.3-1.4 1.5-1.4h1.3V5.2c-.3 0-1.1-.1-2-.1-2 0-3.4 1.2-3.4 3.5V11H8.5v3h2.4v7z" fill="#fff"/>'],
+instagram:['#ff6fb1','<rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="1.2"/>'],
+tiktok:['#25f4ee','<path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5h.5V8a6.5 6.5 0 106.5 6.5V9a6 6 0 003 1V7a4 4 0 01-3.5-4z"/>'],
+telegram:['#3aa8e0','<path d="M21 4L3 11l5 2 2 6 3-4 5 4zM9 13l8-6-6 7z"/>'],
+link:['#d6d9de','<path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>']};
+function toast(t){const d=document.createElement('div');d.className='toast glass';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)}
+
+/* ---------- page ---------- */
+const root=document.documentElement.style,h=CFG.accent||'#e11d2e';
+root.setProperty('--a',h);root.setProperty('--ar',[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(','));
+document.title=CFG.heading;
+$('#app').innerHTML=`<canvas id="rain"></canvas><div class="wrap">
+<div class="top glass" id="go"><span class="toppic">${CFG.topImgId?`<img alt="" src="${blob(CFG.topImgId)}">`:'&#9917;'}</span><span>${esc(CFG.top)}</span></div>
+<h2>${esc(CFG.heading)}</h2><div class="arrows"><span>▼</span><span>▼</span></div>
+<div class="win"><canvas id="fx2"></canvas><div id="rows">${CFG.accounts.map((a,i)=>{const c=IC[a.t]||IC.link;return`<a class="row glass" data-i="${i}" href="${esc(safe(a.u)||'#')}" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="30" height="30" fill="${c[0]}" style="color:${c[0]}">${c[1]}</svg></span><span class="bar"><span>${esc(a.n)}</span><i>›</i></span></a>`}).join('')}</div></div>
+<div class="music glass" id="mu"><div class="disc" id="disc"></div><div class="pr"><div class="time" id="tm">00:00</div><div class="track" id="tr"><div class="fill" id="fl"></div></div></div></div>
+<div class="servers">${CFG.servers.map((s,i)=>`<button class="srv glass${i?'':' act'}" data-i="${i}">${esc(s.label)}</button>`).join('')}</div>
+<div class="hint">${esc(CFG.hint)}</div></div><audio id="au" loop></audio><audio id="snd"></audio>`;
+
+/* accounts scroller */
+const box=$('#rows'),rows=$$('#rows .row');let cur=0,idle=0;
+function update(){const c=box.scrollTop+box.clientHeight/2;let best=0,bd=1e9;
+ rows.forEach((r,i)=>{const d=Math.abs(r.offsetTop+r.offsetHeight/2-c);if(d<bd){bd=d;best=i}const k=Math.min(1,d/110);r.style.filter=`blur(${k*6}px)`;r.style.opacity=1-k*.55;r.style.transform=`scale(${1-k*.08})`});
+ cur=best;rows.forEach((r,i)=>r.style.pointerEvents=i===best?'auto':'none')}
+box.addEventListener('scroll',update);update();
+const show=i=>box.scrollTo({top:rows[i].offsetTop+rows[i].offsetHeight/2-box.clientHeight/2,behavior:'smooth'});
+['touchstart','wheel','pointerdown'].forEach(ev=>box.addEventListener(ev,()=>idle=Date.now(),{passive:true}));
+setInterval(()=>{if(rows.length&&Date.now()-idle>4000)show((cur+1)%rows.length)},2200);
+box.addEventListener('click',e=>{const r=e.target.closest('.row');if(!r)return;const a=CFG.accounts[+r.dataset.i];
+ if(a.note){e.preventDefault();if(r.classList.contains('alert'))return;const sp=r.querySelector('.bar span'),o=sp.textContent;sp.textContent=a.note;r.classList.add('alert');idle=Date.now();setTimeout(()=>{r.classList.remove('alert');sp.textContent=o},2000)}
+ else if(!safe(a.u)){e.preventDefault();toast(a.n+' link is not set up yet.')}});
+
+/* ripple */
+addEventListener('pointerdown',e=>{const t=e.target.closest&&e.target.closest('.row,.top,.srv,.disc,.track');if(!t)return;const r=t.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,w=document.createElement('span'),c=document.createElement('b');w.className='rip';c.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;w.appendChild(c);t.appendChild(w);setTimeout(()=>w.remove(),800)},{passive:true});
+
+/* rain outside the card, pink leaves inside the box */
+(function(){const rc=$('#rain'),rx=rc.getContext('2d'),lc=$('#fx2'),lx=lc.getContext('2d');let RW,RH,LW,LH;
+ const size=()=>{RW=rc.width=innerWidth;RH=rc.height=innerHeight;LW=lc.width=lc.clientWidth;LH=lc.height=lc.clientHeight};addEventListener('resize',size);size();
+ const rd=Array.from({length:80},()=>({x:Math.random()*RW,y:Math.random()*RH,l:9+Math.random()*10,s:3+Math.random()*2.5})),rr=[];
+ const pk=['#ff7eb6','#ff5fa2','#ffa6c9','#f06292'],nl=r=>({x:Math.random()*LW,y:r?Math.random()*LH:-12,s:5+Math.random()*5,v:.15+Math.random()*.25,a:Math.random()*6.28,w:(Math.random()-.5)*.05,p:Math.random()*6.28,c:pk[Math.floor(Math.random()*4)]}),lv=Array.from({length:12},()=>nl(1));
+ (function f(){rx.clearRect(0,0,RW,RH);lx.clearRect(0,0,LW,LH);rx.strokeStyle='rgba(200,225,255,.4)';
+  for(const d of rd){rx.beginPath();rx.moveTo(d.x,d.y);rx.lineTo(d.x-1.5,d.y+d.l);rx.stroke();d.y+=d.s;d.x-=.4;if(d.y>RH){if(Math.random()<.25)rr.push({x:d.x,y:RH-4-Math.random()*30,r:1,o:.45});d.y=-20;d.x=Math.random()*RW}}
+  for(let i=rr.length-1;i>=0;i--){const p=rr[i];rx.strokeStyle=`rgba(200,235,255,${p.o})`;rx.beginPath();rx.ellipse(p.x,p.y,p.r,p.r*.35,0,0,6.28);rx.stroke();p.r+=.6;p.o-=.012;if(p.o<=0)rr.splice(i,1)}
+  for(const l of lv){l.y+=l.v;l.p+=.012;l.x+=Math.sin(l.p)*.3;l.a+=l.w;if(l.y>LH+12)Object.assign(l,nl(0));lx.save();lx.translate(l.x,l.y);lx.rotate(l.a);lx.fillStyle=l.c;lx.globalAlpha=.9;lx.beginPath();lx.ellipse(0,0,l.s,l.s*.45,0,0,6.28);lx.fill();lx.restore()}
+  requestAnimationFrame(f)})()})();
+
+/* music + servers */
+const au=$('#au'),mu=$('#mu'),snd=$('#snd');let on=false,srv=0,touched=false;
+const fmt=s=>isFinite(s)?String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0'):'00:00';
+function play(){au.play().then(()=>{on=true;mu.classList.add('playing')}).catch(()=>{on=false;mu.classList.remove('playing')})}
+function stop(){au.pause();on=false;mu.classList.remove('playing')}
+function pick(i,say){const s=CFG.servers[i];srv=i;$$('.srv').forEach((b,j)=>b.classList.toggle('act',j===i));
+ if(!s||!s.id){stop();if(say)toast('No song on this server yet');return}au.src=blob(s.id);play()}
+au.ontimeupdate=()=>{$('#tm').textContent=fmt(au.currentTime);$('#fl').style.width=(au.duration?au.currentTime/au.duration*100:0)+'%'};
+$('#disc').onclick=()=>{touched=true;if(on)stop();else if(au.src)play();else pick(srv,1)};
+$('#tr').onclick=e=>{if(!au.duration)return;const r=e.currentTarget.getBoundingClientRect();au.currentTime=(e.clientX-r.left)/r.width*au.duration};
+$$('.srv').forEach(b=>b.onclick=()=>{touched=true;pick(+b.dataset.i,1)});
+$('#go').onclick=()=>{if(CFG.clickSndId){snd.src=blob(CFG.clickSndId);snd.currentTime=0;snd.play().catch(()=>{})}};
+pick(0,0);
+addEventListener('pointerdown',e=>{if(touched)return;touched=true;if(!on&&!e.target.closest('#disc,.srv')&&au.src)play()},{passive:true});
+
+/* ---------- owner-only editor ---------- */
+function buildDoc(c){const j=JSON.stringify(c).replace(/</g,'\\u003c');
+ return '<!DOCTYPE html>\n<html lang="en"><head>'+HEAD+'<title>'+esc(c.heading)+'</title><style id="css">'+$('#css').textContent+'</style></head><body><div id="app"></div><script id="cfg" type="application/json">'+j+'<\/script><script id="main">'+$('#main').textContent+'<\/script></body></html>'}
+let W,trash=[];
+const setP=(o,p,v)=>{const k=p.split('.');let t=o;while(k.length>1)t=t[k.shift()];t[k[0]]=v};
+(async()=>{try{const u=window.claude&&await claude.use('user');if(!(u&&await u.canEdit()))return}catch(e){return}
+ const g=document.createElement('button');g.id='gear';g.className='glass';g.textContent='⚙';g.title='Edit this site';g.onclick=()=>{W=JSON.parse(JSON.stringify(CFG));trash=[];draw()};document.body.appendChild(g)})();
+function draw(){let d=$('#adm');
+ if(!d){d=document.createElement('div');d.id='adm';document.body.appendChild(d);
+  d.addEventListener('input',e=>{const p=e.target.dataset.p;if(p)setP(W,p,e.target.value)});
+  d.addEventListener('change',e=>{if(e.target.dataset.up&&e.target.files[0])upload(e.target.dataset.up,e.target.files[0])});
+  d.addEventListener('click',e=>{const t=e.target,D=t.dataset;if(D.rm!==undefined)remove(D.rm);else if(D.del!==undefined){W.accounts.splice(+D.del,1);draw()}else if(D.add!==undefined){W.accounts.push({t:'link',n:'New',u:'',note:''});draw()}else if(D.close!==undefined)d.remove();else if(D.save!==undefined)save()})}
+ const T=Object.keys(IC),I=(l,p,v)=>`<label>${l}</label><input data-p="${p}" value="${esc(v)}">`,F=(l,k,id)=>`<label>${l}</label><input type="file" data-up="${k}">${id?`<small>✓ uploaded</small> <button class="btn" data-rm="${k}">Remove</button>`:'<small>nothing uploaded</small>'}`;
+ d.innerHTML=`<div class="box"><h3 style="margin-top:0">Edit site</h3>`+I('Top bar text','top',W.top)+F('Top bar image','topImg',W.topImgId)+F('Top bar click sound','clickSnd',W.clickSndId)+I('Heading','heading',W.heading)+I('Hint text under the player','hint',W.hint)+`<label>Accent color</label><input type="color" data-p="accent" value="${W.accent}"><h3>Accounts</h3>`
+ +W.accounts.map((a,i)=>`<div class="acc"><label>Icon</label><select data-p="accounts.${i}.t">${T.map(t=>`<option${t===a.t?' selected':''}>${t}</option>`).join('')}</select>`+I('Name',`accounts.${i}.n`,a.n)+I('Link',`accounts.${i}.u`,a.u)+I('Note (shown instead of opening the link)',`accounts.${i}.note`,a.note)+`<button class="btn" data-del="${i}">Delete</button></div>`).join('')
+ +`<button class="btn" data-add>+ Add account</button><h3>Music (uploading a new song deletes the old one)</h3>`+W.servers.map((s,i)=>I('Server '+(i+1)+' name',`servers.${i}.label`,s.label)+F(s.name||'Song',`servers.${i}`,s.id)).join('')
+ +`<p><small id="amsg"></small></p><button class="btn p" data-save>Save</button><button class="btn" data-close>Cancel</button></div>`}
+const msg=t=>{const m=$('#amsg');if(m)m.textContent=t};
+function drop(k){if(k.startsWith('servers.')){const s=W.servers[+k.split('.')[1]];if(s.id)trash.push(s.id);s.id='';s.name=''}else{if(W[k+'Id'])trash.push(W[k+'Id']);W[k+'Id']=''}}
+function remove(k){drop(k);draw()}
+async function upload(k,f){try{const as=await claude.use('assets');if(!as)return msg('Upload is not allowed for this account.');msg('Uploading…');const r=await as.upload(f);drop(k);
+  if(k.startsWith('servers.')){const s=W.servers[+k.split('.')[1]];s.id=r.id;s.name=f.name}else W[k+'Id']=r.id;draw();msg('Uploaded. Press Save to apply.')}catch(e){msg('Upload failed: '+(e.code||e.message||e))}}
+async function save(){W.accounts.forEach(a=>{if(a.u)a.u=safe(a.u)});msg('Saving…');
+ try{const as=await claude.use('assets'),art=await claude.use('artifact');if(!art)return msg('Saving is not allowed for this account.');
+  if(as)for(const id of trash)await as.delete(id).catch(()=>{});
+  await art.publish(buildDoc(W))}catch(e){if(e.code!=='conflict')msg('Save failed: '+(e.code||e.message||e))}}
+</script></body></html>
